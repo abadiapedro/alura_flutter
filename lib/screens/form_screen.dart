@@ -15,6 +15,7 @@ class FormScreen extends StatefulWidget {
 
 class _FormScreenState extends State<FormScreen> {
   TextEditingController nameController = TextEditingController();
+  TextEditingController sobrenomeController = TextEditingController();
   TextEditingController difficultyController = TextEditingController();
   TextEditingController imageController = TextEditingController();
 
@@ -72,6 +73,25 @@ class _FormScreenState extends State<FormScreen> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Nome',
+                        fillColor: Colors.white70,
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      validator: (String? value) {
+                        if (valueValidator(value)) {
+                          return 'Insira o nome da Tarefa';
+                        }
+                        return null;
+                      },
+                      controller: sobrenomeController,
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Sobrenome',
                         fillColor: Colors.white70,
                         filled: true,
                       ),
